@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:seafood_shop/ui/widgets/base_container.dart';
+import 'package:seafood_shop/ui/widgets/widgets.dart';
 
 class CatalogCard extends StatelessWidget {
-  const CatalogCard({super.key, required this.title});
+  const CatalogCard({
+    super.key,
+    required this.title,
+    required this.url,
+  });
 
   final String title;
+  final String url;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +21,7 @@ class CatalogCard extends StatelessWidget {
       child: InkWell(
         onTap: () {},
         borderRadius: BorderRadius.circular(20),
-        child: BaseConatiner(
+        child: BaseContainer(
           isWithColor: false,
           child: Padding(
             padding: const EdgeInsets.all(10.0),
@@ -24,7 +29,7 @@ class CatalogCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(Icons.image),
+                CustomCachedImage(url: url),
                 const SizedBox(height: 10),
                 Text(title),
               ],

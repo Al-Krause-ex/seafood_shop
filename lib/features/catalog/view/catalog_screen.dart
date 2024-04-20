@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:seafood_shop/features/catalog/bloc/category_bloc.dart';
 import 'package:seafood_shop/features/catalog/widgets/catalog_card.dart';
@@ -16,6 +15,7 @@ class CatalogScreen extends StatefulWidget {
 }
 
 class _CatalogScreenState extends State<CatalogScreen> {
+  @override
   void initState() {
     context.read<CategoryBloc>().add(LoadCategory());
     super.initState();
@@ -38,22 +38,35 @@ class _CatalogScreenState extends State<CatalogScreen> {
         const SliverToBoxAdapter(
           child: SizedBox(height: 20),
         ),
-        SliverPadding(
-          padding: const EdgeInsets.symmetric(horizontal: 18),
-          sliver: SliverGrid(
-            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 160,
-              mainAxisSpacing: 10.0,
-              crossAxisSpacing: 10.0,
-              childAspectRatio: 1,
-            ),
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                return const CatalogCard(title: 'Name');
-              },
-              childCount: 6,
-            ),
-          ),
+        BlocBuilder<CategoryBloc, CategoryState>(
+          builder: (context, state) {
+            if (state is CategoryLoaded) {
+              return SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: 18),
+                sliver: SliverGrid(
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 160,
+                    mainAxisSpacing: 10.0,
+                    crossAxisSpacing: 10.0,
+                    childAspectRatio: 1,
+                  ),
+                  delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                      return CatalogCard(
+                        title: state.categories[index].name,
+                        url: state.categories[index].imageUrl,
+                      );
+                    },
+                    childCount: state.categories.length,
+                  ),
+                ),
+              );
+            }
+
+            return const SliverFillRemaining(
+              child: CircularProgressIndicator(),
+            );
+          },
         )
       ],
     );

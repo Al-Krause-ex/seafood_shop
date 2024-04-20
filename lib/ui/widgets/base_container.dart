@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BaseConatiner extends StatelessWidget {
-  const BaseConatiner({
+class BaseContainer extends StatelessWidget {
+  const BaseContainer({
     super.key,
     required this.child,
     this.width,
