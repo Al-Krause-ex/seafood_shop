@@ -21,10 +21,10 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const BasketScreen(),
       );
     },
-    CatalogRoute.name: (routeData) {
+    CategoryRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const CatalogScreen(),
+        child: const CategoryScreen(),
       );
     },
     ExploreRoute.name: (routeData) {
@@ -63,15 +63,15 @@ class BasketRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [CatalogScreen]
-class CatalogRoute extends PageRouteInfo<void> {
-  const CatalogRoute({List<PageRouteInfo>? children})
+/// [CategoryScreen]
+class CategoryRoute extends PageRouteInfo<void> {
+  const CategoryRoute({List<PageRouteInfo>? children})
       : super(
-          CatalogRoute.name,
+          CategoryRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'CatalogRoute';
+  static const String name = 'CategoryRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

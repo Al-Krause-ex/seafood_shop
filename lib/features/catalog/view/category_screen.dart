@@ -2,19 +2,19 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:seafood_shop/features/catalog/bloc/category_bloc.dart';
-import 'package:seafood_shop/features/catalog/widgets/catalog_card.dart';
+import 'package:seafood_shop/features/catalog/widgets/category_card.dart';
 import 'package:seafood_shop/ui/ui.dart';
 import 'package:seafood_shop/ui/widgets/widgets.dart';
 
 @RoutePage()
-class CatalogScreen extends StatefulWidget {
-  const CatalogScreen({super.key});
+class CategoryScreen extends StatefulWidget {
+  const CategoryScreen({super.key});
 
   @override
-  State<CatalogScreen> createState() => _CatalogScreenState();
+  State<CategoryScreen> createState() => _CategoryScreenState();
 }
 
-class _CatalogScreenState extends State<CatalogScreen> {
+class _CategoryScreenState extends State<CategoryScreen> {
   @override
   void initState() {
     context.read<CategoryBloc>().add(LoadCategory());
@@ -52,7 +52,7 @@ class _CatalogScreenState extends State<CatalogScreen> {
                   ),
                   delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
-                      return CatalogCard(
+                      return CategoryCard(
                         title: state.categories[index].name,
                         url: state.categories[index].imageUrl,
                       );

@@ -1,1 +1,1 @@
-export 'catalog_card.dart';
+export 'category_card.dart';

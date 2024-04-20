@@ -20,7 +20,7 @@ class AppRouter extends _$AppRouter {
               path: 'explore',
             ),
             AutoRoute(
-              page: CatalogRoute.page,
+              page: CategoryRoute.page,
               path: 'catalog',
             ),
             AutoRoute(

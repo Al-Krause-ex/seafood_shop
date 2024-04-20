@@ -1,1 +1,1 @@
-export 'catalog_screen.dart';
+export 'category_screen.dart';

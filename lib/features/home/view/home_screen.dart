@@ -11,7 +11,7 @@ class HomeScreen extends StatelessWidget {
     return AutoTabsRouter(
       routes: const [
         ExploreRoute(),
-        CatalogRoute(),
+        CategoryRoute(),
         BasketRoute(),
         ProfileRoute(),
       ],

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:seafood_shop/ui/widgets/widgets.dart';
 
-class CatalogCard extends StatelessWidget {
-  const CatalogCard({
+class CategoryCard extends StatelessWidget {
+  const CategoryCard({
     super.key,
     required this.title,
     required this.url,
@@ -32,6 +32,7 @@ class CatalogCard extends StatelessWidget {
                 CustomCachedImage(url: url),
                 const SizedBox(height: 10),
                 Text(title),
+                Image.network(url),
               ],
             ),
           ),

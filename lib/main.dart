@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:seafood_shop/firebase_options.dart';
@@ -10,5 +11,7 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(const SeafoodShop());
+  final db = FirebaseFirestore.instance;
+
+  runApp(SeafoodShop(db: db));
 }
