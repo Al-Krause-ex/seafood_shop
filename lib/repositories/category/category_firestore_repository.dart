@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:seafood_shop/core/constants/firestore_keys.dart';
 import 'package:seafood_shop/repositories/category/category.dart';
 import 'package:seafood_shop/repositories/category/models/models.dart';
@@ -12,14 +13,14 @@ class CategoryFirestoreRepository implements CategoryRepositoryInterface {
   Future<List<Category>> getCategories() async {
     try {
       final categorySnapshot =
-      await db.collection(FirestoreKeys.categories).get();
+          await db.collection(FirestoreKeys.categories).get();
       final categoryDocs = categorySnapshot.docs;
 
       final categories =
-      categoryDocs.map((e) => Category.fromJson(e.data())).toList();
+          categoryDocs.map((e) => Category.fromJson(e.data())).toList();
       return categories;
     } catch (e) {
-      print('error: $e');
+      debugPrint('error: $e');
       return [];
     }
   }

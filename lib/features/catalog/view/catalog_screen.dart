@@ -16,6 +16,7 @@ class CatalogScreen extends StatefulWidget {
 }
 
 class _CatalogScreenState extends State<CatalogScreen> {
+  @override
   void initState() {
     context.read<CategoryBloc>().add(LoadCategory());
     super.initState();
