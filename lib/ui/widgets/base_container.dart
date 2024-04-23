@@ -5,6 +5,7 @@ class BaseContainer extends StatelessWidget {
     super.key,
     required this.child,
     this.width,
+    this.height,
     this.margin,
     this.padding = const EdgeInsets.only(),
     this.borderRadius = 20.0,
@@ -12,6 +13,7 @@ class BaseContainer extends StatelessWidget {
   });
 
   final double? width;
+  final double? height;
   final EdgeInsets? margin;
   final Widget child;
   final EdgeInsets padding;
@@ -23,6 +25,7 @@ class BaseContainer extends StatelessWidget {
     final theme = Theme.of(context);
     return Container(
       width: width,
+      height: height,
       margin: margin,
       padding: padding,
       decoration: BoxDecoration(

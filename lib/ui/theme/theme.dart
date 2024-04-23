@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:seafood_shop/ui/ui.dart';
 
-const primaryColor = Color(0xFF369FFF);
 final themeData = ThemeData(
   dividerTheme: DividerThemeData(
     color: Colors.grey.withOpacity(0.1),
@@ -13,21 +12,54 @@ final themeData = ThemeData(
   appBarTheme: const AppBarTheme(
     backgroundColor: primaryColor,
     foregroundColor: Colors.white,
+    titleTextStyle: TextStyle(fontSize: 20),
   ),
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: primaryColor,
     selectedItemColor: Colors.white,
     unselectedItemColor: Colors.white38,
   ),
+  badgeTheme: const BadgeThemeData(
+    backgroundColor: Color(0xffF9F871),
+    textColor: Colors.black,
+  ),
   useMaterial3: true,
   textTheme: const TextTheme(
-    titleMedium: TextStyle(
-      fontSize: 16,
-      fontWeight: FontWeight.w600,
+    titleLarge: TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.normal,
     ),
-    headlineLarge: TextStyle(
-      fontSize: 28,
-      fontWeight: FontWeight.w600,
+    titleMedium: TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.w500,
+    ),
+    titleSmall: TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w500,
+    ),
+    bodyLarge: TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.normal,
+    ),
+    bodyMedium: TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.normal,
+    ),
+    bodySmall: TextStyle(
+      fontSize: 12,
+      fontWeight: FontWeight.normal,
+    ),
+    labelLarge: TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+    ),
+    labelMedium: TextStyle(
+      fontSize: 12,
+      fontWeight: FontWeight.w500,
+    ),
+    labelSmall: TextStyle(
+      fontSize: 11,
+      fontWeight: FontWeight.normal,
     ),
   ),
 );

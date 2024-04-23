@@ -13,11 +13,13 @@ class CategoryFirestoreRepository implements CategoryRepositoryInterface {
   Future<List<Category>> getCategories() async {
     try {
       final categorySnapshot =
-          await db.collection(FirestoreKeys.categories).get();
+          await db.collection(FirestoreCollection.categories).get();
       final categoryDocs = categorySnapshot.docs;
 
       final categories =
           categoryDocs.map((e) => Category.fromJson(e.data())).toList();
+
+      categories.sort((a, b) => b.createdAt.compareTo(a.createdAt));
       return categories;
     } catch (e) {
       debugPrint('error: $e');

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:seafood_shop/features/basket/bloc/basket_bloc.dart';
 import 'package:seafood_shop/router/router.dart';
 
 @RoutePage()
@@ -25,7 +27,7 @@ class HomeScreen extends StatelessWidget {
               margin: const EdgeInsets.only(
                 left: 10,
                 right: 10,
-                bottom: 0,
+                bottom: 10,
               ),
               decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -42,20 +44,28 @@ class HomeScreen extends StatelessWidget {
                   currentIndex: tabsRouter.activeIndex,
                   type: BottomNavigationBarType.fixed,
                   onTap: (index) => _openPage(index, tabsRouter),
-                  items: const [
-                    BottomNavigationBarItem(
+                  items: [
+                    const BottomNavigationBarItem(
                       icon: Icon(Icons.home),
                       label: 'Главная',
                     ),
-                    BottomNavigationBarItem(
+                    const BottomNavigationBarItem(
                       icon: Icon(Icons.category),
                       label: 'Каталог',
                     ),
                     BottomNavigationBarItem(
-                      icon: Icon(Icons.shopping_basket),
+                      icon: BlocBuilder<BasketBloc, BasketState>(
+                        builder: (context, state) {
+                          return Badge(
+                            label: Text('${state.basket.items.length}'),
+                            isLabelVisible: state.basket.items.isNotEmpty,
+                            child: const Icon(Icons.shopping_basket),
+                          );
+                        },
+                      ),
                       label: 'Корзина',
                     ),
-                    BottomNavigationBarItem(
+                    const BottomNavigationBarItem(
                       icon: Icon(Icons.account_box),
                       label: 'Кабинет',
                     ),

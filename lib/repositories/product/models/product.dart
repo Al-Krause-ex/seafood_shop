@@ -9,11 +9,13 @@ class Product extends Equatable {
     required this.productId,
     required this.categoryId,
     required this.name,
-    required this.description,
+    required this.taste,
+    required this.origin,
+    required this.nutrients,
     required this.avatar,
     required this.imageUrls,
     required this.price,
-    required this.count,
+    required this.rating,
   });
 
   @JsonKey(name: 'product_id')
@@ -21,32 +23,38 @@ class Product extends Equatable {
   @JsonKey(name: 'category_id')
   final String categoryId;
   final String name;
-  final String description;
+  final String taste;
+  final String origin;
+  final String nutrients;
   final String avatar;
   @JsonKey(name: 'image_urls')
   final List<String> imageUrls;
   final int price;
-  final int count;
+  final double rating;
 
   Product copyWith({
     String? productId,
     String? categoryId,
     String? name,
-    String? description,
+    String? taste,
+    String? origin,
+    String? nutrients,
     String? avatar,
     List<String>? imageUrls,
     int? price,
-    int? count,
+    double? rating,
   }) {
     return Product(
       productId: productId ?? this.productId,
       categoryId: categoryId ?? this.categoryId,
       name: name ?? this.name,
-      description: description ?? this.description,
+      taste: taste ?? this.taste,
+      origin : origin ?? this.origin,
+      nutrients : nutrients ?? this.nutrients,
       avatar: avatar ?? this.avatar,
       imageUrls: imageUrls ?? this.imageUrls,
       price: price ?? this.price,
-      count: count ?? this.count,
+      rating: rating ?? this.rating,
     );
   }
 
@@ -61,11 +69,13 @@ class Product extends Equatable {
       productId,
       categoryId,
       name,
-      description,
+      taste,
+      origin,
+      nutrients,
       avatar,
       imageUrls,
       price,
-      count,
+      rating,
     ];
   }
 }

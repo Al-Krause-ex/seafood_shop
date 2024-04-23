@@ -32,9 +32,9 @@ class SearchButton extends StatelessWidget {
                 return Text(
                   controller.text.isEmpty ? 'Поиск' : controller.text,
                   style: TextStyle(
-                    fontSize: 18,
+                    fontSize: 16,
                     color: Colors.white.withOpacity(.7),
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.normal,
                   ),
                 );
               },
